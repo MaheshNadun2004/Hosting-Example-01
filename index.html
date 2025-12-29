@@ -7,7 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-/* Global Styles */
+
+
 :root {
     --primary: #4f46e5;
     --primary-dark: #4338ca;
@@ -81,7 +82,7 @@ ul {
     border-radius: 0;
 }
 
-/* Header - Mobile App Style */
+
 header {
     background: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(124, 58, 237, 0.95) 100%);
     padding: 1.2rem 1rem 1.5rem 1rem;
@@ -167,13 +168,11 @@ header {
     font-size: 0.8rem;
 }
 
-/* Container */
 .container {
     padding: 1.2rem 1rem;
     position: relative;
 }
 
-/* Section Title */
 .section-title {
     font-size: 1.2rem;
     font-weight: 600;
@@ -198,7 +197,6 @@ header {
     font-size: 1rem;
 }
 
-/* Accordion */
 .accordion-item { 
     margin-bottom: 1rem;
     border-radius: 14px;
@@ -249,7 +247,6 @@ header {
     backdrop-filter: blur(10px);
 }
 
-/* Book Cards */
 .book-card {
     display: flex;
     align-items: flex-start;
@@ -347,7 +344,6 @@ header {
     gap: 0.7rem;
 }
 
-/* Videos inside cards */
 .book-card iframe {
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -357,7 +353,6 @@ header {
     height: 180px;
 }
 
-/* Bottom Navigation - Mobile App Style */
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -406,7 +401,6 @@ header {
     transform: translateY(-2px);
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 2rem 1rem 5rem 1rem;
@@ -433,7 +427,6 @@ footer {
     color: var(--accent);
 }
 
-/* Animation for page load */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -454,7 +447,6 @@ footer {
 .container > *:nth-child(3) { animation-delay: 0.3s; }
 .container > *:nth-child(4) { animation-delay: 0.4s; }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -481,7 +473,6 @@ footer {
 
 
 
-/* Swipe animation for cards */
 @keyframes swipeIn {
     from {
         opacity: 0;
@@ -501,7 +492,6 @@ footer {
 .book-card:nth-child(2) { animation-delay: 0.2s; }
 .book-card:nth-child(3) { animation-delay: 0.3s; }
 
-/* Touch feedback */
 .accordion-header:active,
 .book-card:active,
 .nav-item:active {
@@ -514,6 +504,7 @@ footer {
 <div class="app-container">
 <header>
   <div class="header-flex">
+
     <!-- Profile Photo -->
     <div class="profile-photo-left">
         <img src="my.jpg" alt="My Profile Photo">
@@ -521,22 +512,25 @@ footer {
 
     <!-- Title & Subtitle -->
     <div class="header-text">
-      <h1>📚 EduLibrary Pro</h1>
+      <h1>📚 EduLibrary </h1>
       <p>Your Personal Learning Hub with curated resources</p>
       
       <div class="stats">
         <div class="stat-item">
           <i class="fas fa-book"></i>
-          <span>124 Resources</span>
+          <span>3 Resources</span>
         </div>
-        <div class="stat-item">
+
+        <!--<div class="stat-item">
           <i class="fas fa-video"></i>
-          <span>68 Videos</span>
+          <span>0 Videos</span>
         </div>
+
         <div class="stat-item">
           <i class="fas fa-images"></i>
-          <span>42 Images</span>
-        </div>
+          <span>4 Images</span>
+        </div>-->
+        
       </div>
     </div>
   </div>
@@ -680,11 +674,11 @@ footer {
   <div class="footer-links">
     <a href="#"><i class="fas fa-home"></i> Home</a>
     <a href="#"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="#"><i class="fas fa-cog"></i> Settings</a>
   </div>
-  <p>© 2023 EduLibrary Pro. All rights reserved.</p>
+  <p>© 2023 EduLibrary . All rights reserved.</p>
   <p><i class="fas fa-heart" style="color: #ff6b6b;"></i> Made for mobile learning</p>
 </footer>
+
 
 
 

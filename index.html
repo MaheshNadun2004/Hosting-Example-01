@@ -2,97 +2,668 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>EduLibrary - User Friendly</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<title>EduLibrary - Professional Learning Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body {font-family:'Roboto',sans-serif;margin:0;background:#f8f9ff;color:#2c3e50;}
-header {background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:2rem;text-align:center;color:#fff;}
-header h1 {margin:0;font-size:2.5rem;text-shadow:0 2px 4px rgba(0,0,0,0.3);}
-.search-container{margin:2rem 0;text-align:center;}
-.search-box{padding:12px 20px;border-radius:25px;border:2px solid #ddd;width:300px;max-width:90%;}
-.container{max-width:1000px;margin:0 auto;padding:1rem;}
-.accordion-item{margin-bottom:1rem;}
-.accordion-header{cursor:pointer;background:#fff;padding:1rem;border-radius:10px;font-size:1.2rem;box-shadow:0 4px 20px rgba(0,0,0,0.1);transition:all .3s;margin-bottom:5px;}
-.accordion-header.active{background:#667eea;color:#fff;}
-.accordion-content{overflow:hidden;max-height:0;transition:max-height .4s ease;}
-.book-card{display:flex;align-items:center;padding:1rem;background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);margin:0.5rem 0;transition:transform .3s;text-decoration:none;color:#2c3e50;}
-.book-card:hover{transform:translateY(-5px);}
-.book-thumbnail{width:80px;height:110px;object-fit:cover;border-radius:8px;margin-right:15px;}
-.card-link{text-decoration:none;color:#2c3e50;}
-.card-link:hover{text-decoration:underline;}
-@media (max-width:768px){.container{max-width:100%;padding:1rem;} .book-card{flex-direction:column;align-items:flex-start;} .book-thumbnail{margin-bottom:10px;}}
+/* Global Styles */
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --secondary: #7c3aed;
+    --accent: #f59e0b;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --success: #10b981;
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('rawImage.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: var(--light);
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%);
+    z-index: -1;
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.9) 0%, rgba(124, 58, 237, 0.9) 100%);
+    padding: 1.5rem 1rem 2rem 1rem;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-photo-left {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.profile-photo-left:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
+}
+
+.header-text p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+}
+
+.stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item i {
+    color: var(--accent);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-title i {
+    color: var(--accent);
+    background: rgba(245, 158, 11, 0.15);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Accordion */
+.accordion-item { 
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.accordion-header {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.3rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'Poppins', sans-serif;
+}
+
+.accordion-header:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.accordion-header.active {
+    background: rgba(79, 70, 229, 0.8);
+    color: white;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-icon {
+    transition: var(--transition);
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    padding: 0 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+/* Book Cards */
+.book-card {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    margin: 0.8rem 0;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.book-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.book-thumbnail {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.book-card:hover .book-thumbnail {
+    transform: scale(1.05);
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.card-meta i {
+    margin-right: 0.3rem;
+    color: var(--accent);
+}
+
+.card-link {
+    color: var(--accent);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+}
+
+.card-link:hover {
+    color: #ffd166;
+    gap: 0.7rem;
+}
+
+/* Videos inside cards */
+.book-card iframe {
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    border: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 3rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px){
+    .header-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .header-text h1 { 
+        font-size: 2rem; 
+    }
+    
+    .header-text p { 
+        font-size: 1rem; 
+    }
+    
+    .stats {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .profile-photo-left {
+        width: 110px;
+        height: 110px;
+        font-size: 2.5rem;
+    }
+    
+    .container { 
+        padding: 1.5rem 1rem; 
+    }
+    
+    .book-card { 
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+    
+    .book-thumbnail { 
+        margin-bottom: 15px; 
+        width: 100%;
+        height: 180px;
+    }
+    
+    .book-card iframe { 
+        width: 100%; 
+        height: 200px;
+        margin-bottom: 15px;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .accordion-header {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container > * {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.container > *:nth-child(1) { animation-delay: 0.1s; }
+.container > *:nth-child(2) { animation-delay: 0.2s; }
+.container > *:nth-child(3) { animation-delay: 0.3s; }
+.container > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+.profile-photo-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 </style>
 </head>
 <body>
 
 <header>
-<h1>📚 EduLibrary</h1>
-<div class="search-container">
-<input type="text" class="search-box" placeholder="Search resources..." onkeyup="searchBooks(this.value)">
-</div>
+  <div class="header-flex">
+    <!-- Profile Photo -->
+    <div class="profile-photo-left">
+        <img src="my.jpg" alt="My Profile Photo">
+    </div>
+
+
+    <!-- Title & Subtitle -->
+    <div class="header-text">
+      <h1>📚 EduLibrary Pro</h1>
+      <p>Your Personal Learning Hub with curated resources, video lectures, and study materials for academic excellence</p>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <i class="fas fa-book"></i>
+          <span>124 Resources</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-video"></i>
+          <span>68 Videos</span>
+        </div>
+        <div class="stat-item">
+          <i class="fas fa-images"></i>
+          <span>42 Images</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <div class="container">
 
 <!-- University Section -->
+<div class="section-title">
+  <i class="fas fa-university"></i>
+  <span>University Resources</span>
+</div>
+
 <div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">University Notes</div>
-<div class="accordion-content">
-<ul>
-<li class="book-card">
-<img src="01year_1semester.jpg" class="book-thumbnail" >
-<a class="card-link" href="01year_1semester.html" >01year 1semester</a>
-</li>
-<li class="book-card">
-<img src="pdf2.jpg" class="book-thumbnail" alt="Advanced Programming">
-<a class="card-link" href="https://drive.google.com/file/d/YOUR_PDF_ID/view?usp=sharing" target="_blank">Advanced Programming</a>
-</li>
-</ul>
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+        <span>University Notes & Materials</span>
+        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+    </div>
+    <div class="accordion-content">
+        <ul>
+            <li class="book-card">
+                <img src="01year_1semester.jpg" class="book-thumbnail" alt="First Year Notes">
+                <div class="card-content">
+                    <div class="card-title">First Year - First Semester</div>
+                    <div class="card-subtitle">Complete notes</div>
+                    <div class="card-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF</span>
+                        <span><i class="far fa-clock"></i> Updated 3 weeks ago</span>
+                        <span><i class="fas fa-download"></i> 42 downloads</span>
+                    </div>
+                    <a class="card-link" href="01year_1semester.html">
+                        <span>Open Notes</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+
+            <li class="book-card">
+                <img src="01year_1semester.jpg" class="book-thumbnail" alt="Advanced Programming">
+                <div class="card-content">
+                    <div class="card-title">Advanced Programming</div>
+                    <div class="card-subtitle">Complete guide to data structures, algorithms, and object-oriented programming concepts</div>
+                    <div class="card-meta">
+                        <span><i class="far fa-file-pdf"></i> PDF</span>
+                        <span><i class="far fa-clock"></i> Updated 1 month ago</span>
+                        <span><i class="fas fa-download"></i> 87 downloads</span>
+                    </div>
+                    <a class="card-link" href="https://drive.google.com/file/d/YOUR_PDF_ID/view?usp=sharing" target="_blank">
+                        <span>View Material</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
-</div>
+
 
 <!-- Images Section -->
-<div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">🖼️ Images</div>
-<div class="accordion-content">
-<ul>
-<li class="book-card">
-<img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID" class="book-thumbnail" alt="Biology Diagram">
-<a class="card-link" href="https://drive.google.com/file/d/YOUR_IMAGE_ID/view?usp=sharing" target="_blank">Biology Diagram</a>
-</li>
-<li class="book-card">
-<img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID" class="book-thumbnail" alt="Chemistry Chart">
-<a class="card-link" href="https://drive.google.com/file/d/YOUR_IMAGE_ID/view?usp=sharing" target="_blank">Chemistry Chart</a>
-</li>
-</ul>
-</div>
+<div class="section-title">
+  <i class="fas fa-images"></i>
+  <span>Visual Learning Materials</span>
 </div>
 
-<!-- Videos Section -->
 <div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)">🎥 Videos</div>
-<div class="accordion-content">
-<ul>
-<li class="book-card">
-<iframe width="300" height="170" src="https://drive.google.com/file/d/YOUR_VIDEO_ID/preview" frameborder="0" allowfullscreen></iframe>
-<p>Physics Lecture</p>
-</li>
-<li class="book-card">
-<iframe width="300" height="170" src="https://drive.google.com/file/d/YOUR_VIDEO_ID/preview" frameborder="0" allowfullscreen></iframe>
-<p>Math Tutorial</p>
-</li>
-</ul>
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Diagrams & Charts</span>
+        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+    </div>
+    <div class="accordion-content">
+        <ul>
+            <li class="book-card">
+                <img src="01year_1semester.jpg" class="book-thumbnail" alt="Biology Diagram">
+                <div class="card-content">
+                    <div class="card-title">Human Anatomy Diagrams</div>
+                    <div class="card-subtitle">Detailed diagrams of human body systems with labeled parts and functions</div>
+                    <div class="card-meta">
+                        <span><i class="far fa-image"></i> High Resolution</span>
+                        <span><i class="fas fa-tags"></i> Biology, Anatomy</span>
+                    </div>
+                    <a class="card-link" href="https://drive.google.com/file/d/YOUR_IMAGE_ID/view?usp=sharing" target="_blank">
+                        <span>View Full Image</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </li>
+            <li class="book-card">
+                <img src="01year_1semester.jpg" class="book-thumbnail" alt="Chemistry Chart">
+                <div class="card-content">
+                    <div class="card-title">Periodic Table & Reactions</div>
+                    <div class="card-subtitle">Comprehensive charts of chemical elements, periodic trends, and common reactions</div>
+                    <div class="card-meta">
+                        <span><i class="far fa-image"></i> High Resolution</span>
+                        <span><i class="fas fa-tags"></i> Chemistry, Science</span>
+                    </div>
+                    <a class="card-link" href="https://drive.google.com/file/d/YOUR_IMAGE_ID/view?usp=sharing" target="_blank">
+                        <span>View Full Image</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
+
+
+
+<!-- Additional Section -->
+<div class="section-title">
+  <i class="fas fa-laptop-code"></i>
+  <span>Programming Resources</span>
+</div>
+
+<div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+        <span>Coding Tutorials & Projects</span>
+        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+    </div>
+    <div class="accordion-content">
+        <ul>
+            <li class="book-card">
+                <img src="01year_1semester.jpg" class="book-thumbnail" alt="Web Development">
+                <div class="card-content">
+                    <div class="card-title">Web Development Full Course</div>
+                    <div class="card-subtitle">Complete guide to HTML, CSS, JavaScript and modern frameworks</div>
+                    <div class="card-meta">
+                        <span><i class="fas fa-code"></i> 15 Projects</span>
+                        <span><i class="far fa-clock"></i> 12 hours</span>
+                        <span><i class="fas fa-download"></i> 156 downloads</span>
+                    </div>
+                    <a class="card-link" href="#">
+                        <span>Access Course</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
 
 </div>
+
+<footer>
+  <div class="footer-links">
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+  </div>
+  <p>© 2023 EduLibrary Pro. All rights reserved. | Designed for better learning experience</p>
+  <p><i class="fas fa-heart" style="color: #ff6b6b;"></i> Made with passion for education</p>
+</footer>
+
+
+
+
+
 
 <script>
 function toggleAccordion(header){
     const content = header.nextElementSibling;
     const isOpen = content.classList.contains("open");
-    document.querySelectorAll('.accordion-content').forEach(c=>{c.style.maxHeight=null;c.classList.remove("open");});
-    document.querySelectorAll('.accordion-header').forEach(h=>h.classList.remove("active"));
+    
+    // Close all accordions
+    document.querySelectorAll('.accordion-content').forEach(c=>{
+        c.style.maxHeight = null; 
+        c.classList.remove("open");
+    });
+    
+    document.querySelectorAll('.accordion-header').forEach(h=>{
+        h.classList.remove("active");
+    });
+    
+    // Open current if it was closed
     if(!isOpen){
         content.style.maxHeight = content.scrollHeight + "px";
         content.classList.add("open");
@@ -100,13 +671,24 @@ function toggleAccordion(header){
     }
 }
 
-function searchBooks(query){
-    const cards = document.querySelectorAll('.book-card');
-    cards.forEach(card=>{
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(query.toLowerCase()) ? 'flex' : 'none';
+// Open first accordion by default on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const firstAccordion = document.querySelector('.accordion-header');
+    if (firstAccordion) {
+        toggleAccordion(firstAccordion);
+    }
+});
+
+// Add smooth hover effect to cards
+document.querySelectorAll('.book-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px)';
     });
-}
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
 </script>
 
 </body>

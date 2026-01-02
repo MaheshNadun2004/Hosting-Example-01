@@ -71,6 +71,7 @@ ul {
 
 /* Mobile App Container */
 .app-container {
+    padding-bottom: 40px; /* Footer + bottom nav space */
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
@@ -402,14 +403,20 @@ header {
 }
 
 footer {
+    position: fixed;       /* Lock at bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
     text-align: center;
-    padding: 2rem 1rem 5rem 1rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.8rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 2rem;
-    background: rgba(0, 0, 0, 0.2);
+    padding: 0.2rem 0.8rem;   /* Minimal padding */
+    font-size: 0.45rem;       /* Smaller text */
+    z-index: 1000;
+    line-height: 1.2;         /* Compact lines */
 }
+
+
 
 .footer-links {
     display: flex;
@@ -552,7 +559,7 @@ footer {
     <div class="accordion-content">
         <ul>
             <li class="book-card">
-                <img src="01year_1semester.jpg" class="book-thumbnail" alt="First Year Notes">
+                <img src="first1.jpg" class="book-thumbnail" alt="First Year Notes">
                 <div class="card-content">
                     <div class="card-title">First Year - First Semester</div>
                     <div class="card-subtitle">Complete notes for all subjects in first semester</div>
@@ -568,10 +575,10 @@ footer {
             </li>
 
             <li class="book-card">
-                <img src="01year_1semester.jpg" class="book-thumbnail" alt="Advanced Programming">
+                <img src="first2.jpg" class="book-thumbnail" alt="Advanced Programming">
                 <div class="card-content">
-                    <div class="card-title">Advanced Programming</div>
-                    <div class="card-subtitle">Complete guide to data structures and algorithms</div>
+                    <div class="card-title">First Year - second Semester</div>
+                    <div class="card-subtitle">Complete notes for all subjects in second semester</div>
                     <div class="card-meta">
                         <span><i class="far fa-file-pdf"></i> PDF</span>
                         <span><i class="far fa-clock"></i> Updated 1 month ago</span>
@@ -676,7 +683,7 @@ footer {
     <a href="#"><i class="fas fa-envelope"></i> Contact</a>
   </div>
   <p>© 2023 EduLibrary . All rights reserved.</p>
-  <p><i class="fas fa-heart" style="color: #ff6b6b;"></i> Made for mobile learning</p>
+  <!--<p><i class="fas fa-heart" style="color: #ff6b6b;"></i> Made for mobile learning</p>-->
 </footer>
 
 
@@ -708,10 +715,7 @@ function toggleAccordion(header){
 
 // Open first accordion by default on page load
 document.addEventListener('DOMContentLoaded', function() {
-    const firstAccordion = document.querySelector('.accordion-header');
-    if (firstAccordion) {
-        toggleAccordion(firstAccordion);
-    }
+   
     
     // Add touch feedback
     document.querySelectorAll('.accordion-header, .book-card, .nav-item').forEach(element => {

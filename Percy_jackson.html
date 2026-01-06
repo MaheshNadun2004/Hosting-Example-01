@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="si">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sherlock Holmes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" 
+rel="stylesheet">
+
+<style>
+:root{
+  --primary:#6a11cb;
+  --secondary:#2575fc;
+  --accent:#ff9f43;
+  --dark:#2f3640;
+  --light:#f5f6fa;
+  --shadow:0 10px 25px rgba(0,0,0,0.12);
+  --transition:all .3s ease;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#eef2ff,#f5f6fa);
+  min-height:100vh;
+  padding:2rem 1rem;
+}
+
+/* Title */
+h1{
+  text-align:center;
+  font-size:2rem;
+  margin-bottom:2rem;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Grid */
+ul{
+  list-style:none;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1.5rem;
+  max-width:900px;
+  margin:0 auto;
+}
+
+/* Card */
+li{
+  background:#fff;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:1rem;
+  text-align:center;
+  transition:var(--transition);
+  position:relative;
+  overflow:hidden;
+}
+
+li::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(to right,var(--primary),var(--secondary));
+}
+
+li:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 35px rgba(0,0,0,0.18);
+}
+
+/* Image */
+img{
+  width:110px;
+  height:140px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:.8rem;
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
+  transition:var(--transition);
+}
+
+li:hover img{
+  transform:scale(1.05);
+}
+
+/* Link */
+a{
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:600;
+  font-size:1rem;
+  display:block;
+}
+
+a span{
+  display:inline-block;
+  margin-top:.3rem;
+  font-size:.85rem;
+  color:#718093;
+}
+
+li:hover a{
+  color:var(--accent);
+}
+
+/* Small screens */
+@media(max-width:480px){
+  h1{font-size:1.6rem;}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Percy Jackson</h1>
+
+<ul>
+  <li>
+    <a href="https://drive.google.com/file/d/1VzGbvA4bsZyCwwXWQT1sFAMIOk8--eMP/view?usp=sharing" 
+    target="_blank">
+      <img src="Percy-Jackson-and-the-Olympians-The-Demigod-Files.jpg" 
+      alt="Percy-Jackson-and-the-Olympians-The-Demigod-Files.jpg">
+      Percy_Jackson 
+      <span>and the Olympians</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://drive.google.com/file/d/1-_JiLW0CukZgIhBbBeDmVuRl9v6CXMEh/view?usp=sharing" 
+    target="_blank">
+      <img src="Percy-Jackson-The-Sea-of-Monsters.jpg" alt="Percy-Jackson-The-Sea-of-Monsters.jpg">
+      Percy_Jackson
+      <span>The Sea of Monsters</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://drive.google.com/file/d/1lHP2L8fdYH59G3Wvk7ICIZ6QmcNK9NGo/view?usp=sharing" 
+    target="_blank">
+      <img src="Percy-Jackson1-The-Lightning-Thief.jpg" alt="Percy-Jackson1-The-Lightning-Thief.jpg">
+      Percy_Jackson
+      <span>The Lightning Thief</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="https://drive.google.com/file/d/12-EDEBnt_WPMGM_uw3zbLfkwlwrR_ZcJ/view?usp=sharing" 
+    target="_blank">
+      <img src="THE-BATTLE-OF-THЕ-LABYRINTH.jpg"
+       alt="THE-BATTLE-OF-THЕ-LABYRINTH.jpg">
+      Percy_Jackson
+      <span>The battle of the labyrinth</span>
+    </a>
+  </li>
+
+   <li>
+    <a href="https://drive.google.com/file/d/1QGRlg-OkLGTYfX1rjHqefcO9pNgRRSpy/view?usp=sharing" 
+    target="_blank">
+      <img src="THE-LAST-OLYMPIAN.jpg"
+       alt="THE-LAST-OLYMPIAN.jpg">
+      Percy_Jackson
+      <span>The last olympian</span>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https://drive.google.com/file/d/1XY8AFMWDXZRpHMBRQzpyosSBj_VxRDmo/view?usp=sharing" 
+    target="_blank">
+      <img src="percy-jackson2-the-sea-of-monsters-riordan_ rick.jpg"
+       alt="percy-jackson2-the-sea-of-monsters-riordan_ rick.jpg">
+      Percy_Jackson
+      <span>The sea of Monsters riordan rick</span>
+    </a>
+  </li>
+
+   <li>
+    <a href="https://drive.google.com/file/d/179f1_zuxQ8NoLoXPqIn0uMBagmifHJM2/view?usp=sharing" 
+    target="_blank">
+      <img src="THE-LIGHTNING.jpg"
+       alt="THE-LIGHTNING.jpg">
+      Percy_Jackson
+      <span>The lightning</span>
+    </a>
+  </li>
+
+   <li>
+    <a href="https://drive.google.com/file/d/1ugSKFaUoJnoD14owObDUNU1Kfdp6Uinc/view?usp=sharing" 
+    target="_blank">
+      <img src="THE-TITAN'S-CURSE.jpg"
+       alt="THE-TITAN'S-CURSE.jpg">
+      Percy_Jackson
+      <span>The titan's curse </span>
+    </a>
+  </li>
+
+</ul>
+
+</body>
+</html>

@@ -3,731 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>EduLibrary - Vena Dark Mode</title>
+<title>EduLibrary - Light Mode</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-/* ================= VENA DARK THEME ================= */
-:root {
-    --vena-bg: #0a0a0f;
-    --vena-surface: #121218;
-    --vena-card: #1a1a24;
-    --vena-primary: #7c3aed;
-    --vena-primary-glow: #8b5cf6;
-    --vena-secondary: #00d4aa;
-    --vena-accent: #ff6b9d;
-    --vena-text: #f0f0ff;
-    --vena-text-muted: #a0a0c0;
-    --vena-border: #2a2a35;
-    --vena-success: #00ffaa;
-    --vena-warning: #ffaa00;
-    --vena-gradient: linear-gradient(135deg, #7c3aed 0%, #00d4aa 100%);
-    --vena-glow: 0 0 20px rgba(124, 58, 237, 0.4);
-    --vena-card-glow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    font-family: 'Inter', sans-serif;
-    background: var(--vena-bg);
-    color: var(--vena-text);
-    line-height: 1.6;
-}
-
-/* Glitch Effect for Title */
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
-
-/* App Container with Neon Border */
-.app-container {
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    background: var(--vena-surface);
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.1);
-}
-
-.app-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--vena-gradient);
-    z-index: 1000;
-}
-
-/* Header with Neon Effects */
-header {
-    background: linear-gradient(180deg, rgba(18, 18, 24, 0.95) 0%, rgba(10, 10, 15, 0.9) 100%);
-    padding: 1.5rem 1.2rem 1.8rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--vena-border);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-}
-
-.header-flex {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    position: relative;
-}
-
-/* Profile Photo with Glow */
-.profile-photo-left {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    background: linear-gradient(var(--vena-card), var(--vena-card)) padding-box,
-                var(--vena-gradient) border-box;
-    object-fit: cover;
-    box-shadow: var(--vena-glow);
-    transition: var(--transition);
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.profile-photo-left::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    padding: 2px;
-    background: var(--vena-gradient);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.7;
-}
-
-.profile-photo-left img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: transform 0.5s ease;
-}
-
-.profile-photo-left:hover {
-    transform: scale(1.05) rotate(5deg);
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
-}
-
-/* Header Text */
-.header-text h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-    background: var(--vena-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-family: 'JetBrains Mono', monospace;
-    position: relative;
-    display: inline-block;
-}
-
-.header-text h1:hover {
-    animation: glitch 0.3s linear;
-}
-
-.header-text p {
-    margin: 0.5rem 0 0 0;
-    font-size: 0.9rem;
-    color: var(--vena-text-muted);
-    line-height: 1.4;
-    max-width: 100%;
-    font-weight: 400;
-}
-
-/* Stats */
-.stats {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.2rem;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(124, 58, 237, 0.1);
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(124, 58, 237, 0.3);
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: var(--transition);
-    cursor: default;
-    backdrop-filter: blur(10px);
-}
-
-.stat-item:hover {
-    background: rgba(124, 58, 237, 0.2);
-    transform: translateY(-2px);
-    border-color: var(--vena-primary);
-}
-
-.stat-item i {
-    color: var(--vena-primary-glow);
-    font-size: 0.9rem;
-}
-
-/* Main Container */
-.container {
-    padding: 1.5rem 1.2rem 6rem;
-    position: relative;
-}
-
-/* Section Title */
-.section-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 1.8rem 0 1.2rem;
-    color: var(--vena-text);
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-family: 'JetBrains Mono', monospace;
-    padding: 0.5rem 0;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background: var(--vena-gradient);
-    border-radius: 2px;
-}
-
-.section-title i {
-    color: var(--vena-primary);
-    background: rgba(124, 58, 237, 0.1);
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    border: 1px solid rgba(124, 58, 237, 0.3);
-}
-
-/* Accordion */
-.accordion-item {
-    margin-bottom: 1.2rem;
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--vena-card);
-    border: 1px solid var(--vena-border);
-    transition: var(--transition);
-    box-shadow: var(--vena-card-glow);
-}
-
-.accordion-item:hover {
-    border-color: var(--vena-primary);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-}
-
-.accordion-header {
-    cursor: pointer;
-    background: transparent;
-    padding: 1.2rem 1.5rem;
-    font-size: 1.05rem;
-    font-weight: 600;
-    transition: var(--transition);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--vena-text);
-    position: relative;
-}
-
-.accordion-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--vena-gradient);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.accordion-header:hover {
-    background: rgba(124, 58, 237, 0.05);
-    padding-left: 1.8rem;
-}
-
-.accordion-header:hover::before {
-    opacity: 1;
-}
-
-.accordion-header.active {
-    background: rgba(124, 58, 237, 0.1);
-    color: var(--vena-primary-glow);
-    padding-left: 1.8rem;
-}
-
-.accordion-header.active::before {
-    opacity: 1;
-}
-
-.accordion-icon {
-    transition: var(--transition);
-    font-size: 1rem;
-    color: var(--vena-primary);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(124, 58, 237, 0.1);
-}
-
-.accordion-content {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    background: transparent;
-}
-
-.accordion-content.open {
-    max-height: 2000px;
-}
-
-/* Book Cards */
-.book-card {
-    display: flex;
-    align-items: flex-start;
-    padding: 1.2rem;
-    background: linear-gradient(145deg, rgba(26, 26, 36, 0.8), rgba(18, 18, 24, 0.8));
-    border-radius: 10px;
-    margin: 1rem;
-    transition: var(--transition);
-    border: 1px solid var(--vena-border);
-    position: relative;
-    overflow: hidden;
-    flex-direction: column;
-    backdrop-filter: blur(10px);
-}
-
-.book-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--vena-gradient);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.book-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--vena-primary);
-    box-shadow: var(--vena-glow);
-}
-
-.book-card:hover::before {
-    opacity: 1;
-}
-
-.book-card:hover .book-thumbnail {
-    transform: scale(1.03);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-}
-
-.book-thumbnail {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    border: 1px solid var(--vena-border);
-    transition: var(--transition);
-    background: linear-gradient(45deg, var(--vena-card), var(--vena-surface));
-}
-
-.card-content {
-    flex: 1;
-    width: 100%;
-}
-
-.card-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--vena-text);
-    font-family: 'JetBrains Mono', monospace;
-    line-height: 1.3;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.card-subtitle {
-    font-size: 0.9rem;
-    color: var(--vena-text-muted);
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-.card-meta {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 0.8rem;
-    color: var(--vena-text-muted);
-    margin-bottom: 0.8rem;
-}
-
-.card-meta span {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.card-meta i {
-    color: var(--vena-primary);
-    font-size: 0.9rem;
-}
-
-.card-link {
-    color: var(--vena-secondary);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: var(--transition);
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    background: rgba(0, 212, 170, 0.1);
-    border-radius: 8px;
-    text-decoration: none;
-    width: fit-content;
-    border: 1px solid rgba(0, 212, 170, 0.3);
-}
-
-.card-link:hover {
-    color: var(--vena-bg);
-    background: var(--vena-secondary);
-    gap: 0.8rem;
-    transform: translateX(5px);
-}
-
-.card-link i {
-    transition: var(--transition);
-}
-
-.card-link:hover i {
-    transform: translateX(3px);
-}
-
-/* Badges */
-.new-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--vena-gradient);
-    color: var(--vena-bg);
-    font-size: 0.7rem;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-weight: 700;
-    z-index: 2;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-/* Bottom Navigation */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(18, 18, 24, 0.95);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    display: flex;
-    justify-content: space-around;
-    padding: 0.8rem 0;
-    border-top: 1px solid var(--vena-border);
-    z-index: 1000;
-    max-width: 480px;
-    margin: 0 auto;
-}
-
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--vena-text-muted);
-    transition: var(--transition);
-    padding: 0.5rem;
-    border-radius: 10px;
-    flex: 1;
-    max-width: 80px;
-    cursor: pointer;
-    position: relative;
-}
-
-.nav-item.active {
-    color: var(--vena-primary);
-    background: rgba(124, 58, 237, 0.1);
-}
-
-.nav-item.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    width: 4px;
-    height: 4px;
-    background: var(--vena-primary);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--vena-primary);
-}
-
-.nav-item i {
-    font-size: 1.3rem;
-    margin-bottom: 0.3rem;
-    transition: var(--transition);
-}
-
-.nav-item span {
-    font-size: 0.75rem;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.nav-item:hover {
-    color: var(--vena-primary);
-    transform: translateY(-3px);
-}
-
-.nav-item:hover i {
-    transform: scale(1.2);
-    color: var(--vena-primary-glow);
-}
-
-/* Footer */
-footer {
-    background: rgba(10, 10, 15, 0.9);
-    text-align: center;
-    padding: 0.8rem 1.2rem;
-    font-size: 0.7rem;
-    z-index: 1000;
-    line-height: 1.4;
-    color: var(--vena-text-muted);
-    border-top: 1px solid var(--vena-border);
-    position: relative;
-    backdrop-filter: blur(10px);
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.footer-links a {
-    transition: var(--transition);
-    font-size: 0.9rem;
-    color: var(--vena-text-muted);
-    text-decoration: none;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.footer-links a:hover {
-    color: var(--vena-primary);
-    transform: translateY(-2px);
-}
-
-footer p {
-    margin-top: 0.3rem;
-    font-size: 0.75rem;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.container > * {
-    animation: fadeInUp 0.6s ease forwards;
-    opacity: 0;
-}
-
-.container > *:nth-child(1) { animation-delay: 0.1s; }
-.container > *:nth-child(2) { animation-delay: 0.2s; }
-.container > *:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes swipeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.book-card {
-    animation: swipeIn 0.5s ease forwards;
-    opacity: 0;
-}
-
-.book-card:nth-child(1) { animation-delay: 0.1s; }
-.book-card:nth-child(2) { animation-delay: 0.2s; }
-.book-card:nth-child(3) { animation-delay: 0.3s; }
-
-/* Pulse Animation */
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.6); }
-    70% { box-shadow: 0 0 0 10px rgba(124, 58, 237, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
-}
-
-.pulse {
-    animation: pulse 2s infinite;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--vena-surface);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--vena-gradient);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--vena-primary);
-}
-
-/* Responsive */
-@media (max-width: 480px) {
-    .app-container {
-        border-radius: 0;
-    }
-    
-    header {
-        padding: 1.2rem 1rem 1.5rem;
-    }
-    
-    .section-title {
-        font-size: 1.2rem;
-    }
-    
-    .book-thumbnail {
-        height: 160px;
-    }
-}
-
-/* Quick Stats */
-.stats-bar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
-}
-
-.stat-box {
-    background: var(--vena-card);
-    border: 1px solid var(--vena-border);
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.stat-box:hover {
-    border-color: var(--vena-primary);
-    transform: translateY(-3px);
-}
-
-.stat-box .number {
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: var(--vena-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.stat-box .label {
-    font-size: 0.8rem;
-    color: var(--vena-text-muted);
-    margin-top: 0.3rem;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="app-container">
 <header>
   <div class="header-flex">
-    <!-- Profile Photo -->
+    
     <div class="profile-photo-left">
         <img src="my.jpg" alt="My Profile Photo" onerror="this.onerror=null; 
         this.parentElement.innerHTML='<i class=\'fas fa-user-astronaut\'></i>'">
     </div>
 
-    <!-- Title & Subtitle -->
     <div class="header-text">
       <h1>EDULIBRARY</h1>
       <p>Your Personal Learning Hub with curated resources</p>
@@ -744,7 +36,6 @@ footer p {
 
 <div class="container">
 
-<!-- Quick Stats -->
 <div class="stats-bar">
     <div class="stat-box">
         <div class="number">3+</div>
@@ -760,7 +51,7 @@ footer p {
     </div>
 </div>
 
-<!-- University Section -->
+<!--------------------------------------------- University Section -->
 <div class="section-title">
   <i class="fas fa-graduation-cap"></i>
   <span>UNIVERSITY</span>
@@ -774,8 +65,7 @@ footer p {
     <div class="accordion-content">
         <ul>
             <li class="book-card">
-               <!---- <span class="new-badge">NEW</span>-->
-                <img src="first1.jpg" class="book-thumbnail" alt="First Year Notes" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%231a1a24\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%237c3aed\" text-anchor=\"middle\">📚</text></svg>'">
+                <img src="first1.jpg" class="book-thumbnail" alt="First Year Notes" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%23f1f5f9\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%234f46e5\" text-anchor=\"middle\">📚</text></svg>'">
                 <div class="card-content">
                     <div class="card-title"><i class="fas fa-book"></i> First Year - Semester 1</div>
                     <div class="card-subtitle">Complete notes for all subjects in first semester</div>
@@ -791,7 +81,7 @@ footer p {
             </li>
 
             <li class="book-card">
-                <img src="first2.jpg" class="book-thumbnail" alt="Second Semester" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%231a1a24\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%2300d4aa\" text-anchor=\"middle\">🔬</text></svg>'">
+                <img src="first2.jpg" class="book-thumbnail" alt="Second Semester" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%23f1f5f9\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%2310b981\" text-anchor=\"middle\">🔬</text></svg>'">
                 <div class="card-content">
                     <div class="card-title"><i class="fas fa-microscope"></i> First Year - Semester 2</div>
                     <div class="card-subtitle">Complete notes for all subjects in second semester</div>
@@ -809,7 +99,7 @@ footer p {
     </div>
 </div>
 
-<!-- Book Resources -->
+<!------------------------------------------ Book Resources -->
 <div class="section-title">
   <i class="fas fa-book"></i>
   <span>DIGITAL LIBRARY</span>
@@ -823,7 +113,7 @@ footer p {
     <div class="accordion-content">
         <ul>
             <li class="book-card">
-                <img src="SherlockHolmes.jpg" class="book-thumbnail" alt="Sherlock Holmes" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%231a1a24\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%237c3aed\" text-anchor=\"middle\">🕵️</text></svg>'">
+                <img src="SherlockHolmes.jpg" class="book-thumbnail" alt="Sherlock Holmes" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%23f1f5f9\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%234f46e5\" text-anchor=\"middle\">🕵️</text></svg>'">
                 <div class="card-content">
                     <div class="card-title"><i class="fas fa-search"></i> Sherlock Holmes Series</div>
                     <div class="card-subtitle">Sinhala medium detective series</div>
@@ -832,15 +122,14 @@ footer p {
                         <span><i class="fas fa-star"></i> Classic</span>
                         <span><i class="fas fa-calendar-alt"></i> Updated 3 weeks ago</span>
                     </div>
-                    <a class="card-link" href="Sherlock_Holmes.html" target="_blank">
+                    <a class="card-link" href="Sherlock_Holmes.html">
                         <span>Start Reading</span>
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </li>
             <li class="book-card pulse">
-                <!--<span class="new-badge">HOT</span>-->
-                <img src="Percy_jackson.jpg" class="book-thumbnail" alt="Percy Jackson" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%231a1a24\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%2300d4aa\" text-anchor=\"middle\">⚡</text></svg>'">
+                <img src="Percy_jackson.jpg" class="book-thumbnail" alt="Percy Jackson" onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%23f1f5f9\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%2310b981\" text-anchor=\"middle\">⚡</text></svg>'">
                 <div class="card-content">
                     <div class="card-title"><i class="fas fa-bolt"></i> Percy Jackson Series</div>
                     <div class="card-subtitle">English medium mythology adventure series</div>
@@ -849,7 +138,7 @@ footer p {
                         <span><i class="fas fa-fire"></i> Popular</span>
                         <span><i class="fas fa-calendar-alt"></i> Updated: 1/6/2026</span>
                     </div>
-                    <a class="card-link" href="Percy_jackson.html" target="_blank">
+                    <a class="card-link" href="Percy_jackson.html" >
                         <span>Begin Adventure</span>
                         <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -859,7 +148,7 @@ footer p {
     </div>
 </div>
 
-<!-- Programming Section -->
+<!--------------------------------------------- Programming Section -->
 <div class="section-title">
   <i class="fas fa-terminal"></i>
   <span>CODE LAB</span>
@@ -871,18 +160,17 @@ footer p {
         <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
     </div>
     <div class="accordion-content">
-        <li class="book-card pulse">
-                <img src="" class="book-thumbnail" alt="Updeting..." onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%231a1a24\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%2300d4aa\" text-anchor=\"middle\"></text></svg>
+        <li class="book-card">
+                <img src="" class="book-thumbnail" alt="Updating..." onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"%23f1f5f9\"/><text x=\"200\" y=\"150\" font-family=\"Arial\" font-size=\"24\" fill=\"%2310b981\" text-anchor=\"middle\">⌛</text></svg>'">
                 <div class="card-content">
-                    <div class="card-title"><i class="fas fa-bolt"></i> Updeting...</div>
-                    <div class="card-subtitle">Updeting..</div>
+                    <div class="card-title"><i class="fas fa-hourglass-half"></i> Coming Soon...</div>
+                    <div class="card-subtitle">Programming resources are being prepared</div>
                     <div class="card-meta">
-                        <!--<span><i class="fas fa-globe"></i> English</span>
-                        <span><i class="fas fa-fire"></i> Popular</span>
-                        <span><i class="fas fa-calendar-alt"></i> Updated: 1/6/2026</span>
+                        <span><i class="fas fa-code"></i> HTML/CSS/JS</span>
+                        <span><i class="fas fa-clock"></i> In Progress</span>
                     </div>
-                    <a class="card-link" href="Percy_jackson.html" target="_blank">-->
-                        <span>Updeting..</span>
+                    <a class="card-link" href="#" onclick="showNotification('Programming section coming soon!')">
+                        <span>Stay Tuned</span>
                         <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
@@ -891,8 +179,6 @@ footer p {
 </div>
 </div>
 
-
-<!-- Bottom Navigation -->
 <div class="bottom-nav">
     <div class="nav-item active" onclick="setActiveNav(this, 'home')">
         <i class="fas fa-home"></i>
@@ -908,283 +194,7 @@ footer p {
 </div>
 </div>
 
-<script>
-
-// Accordion function
-function toggleAccordion(header) {
-    const content = header.nextElementSibling;
-    const isOpen = content.classList.contains("open");
-    
-    // Close all accordions
-    document.querySelectorAll('.accordion-content').forEach(c => {
-        c.style.maxHeight = null;
-        c.classList.remove("open");
-    });
-    
-    document.querySelectorAll('.accordion-header').forEach(h => {
-        h.classList.remove("active");
-    });
-    
-    // Open current if it was closed
-    if (!isOpen) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        content.classList.add("open");
-        header.classList.add("active");
-        
-        // Animate cards
-        setTimeout(() => {
-            content.querySelectorAll('.book-card').forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-                card.style.animation = 'swipeIn 0.5s ease forwards';
-            });
-        }, 100);
-    }
-}
-
-// Navigation function
-function setActiveNav(navItem, page) {
-    document.querySelectorAll('.nav-item').forEach(nav => {
-        nav.classList.remove("active");
-    });
-    navItem.classList.add("active");
-    
-    // Create particle effect
-    createParticles(event);
-    
-    
-}
-
-// Particle effect
-function createParticles(event) {
-    const particles = 8;
-    const colors = ['#7c3aed', '#00d4aa', '#ff6b9d'];
-    
-    for (let i = 0; i < particles; i++) {
-        const particle = document.createElement('div');
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        
-        particle.style.cssText = `
-            position: fixed;
-            pointer-events: none;
-            width: 4px;
-            height: 4px;
-            background: ${color};
-            border-radius: 50%;
-            z-index: 10000;
-            left: ${event.clientX}px;
-            top: ${event.clientY}px;
-            animation: particleMove 0.8s ease-out forwards;
-        `;
-        
-        document.body.appendChild(particle);
-        
-        setTimeout(() => {
-            particle.remove();
-        }, 800);
-    }
-}
-
-// Add particle animation
-const particleStyle = document.createElement('style');
-particleStyle.textContent = `
-    @keyframes particleMove {
-        0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
-        }
-        100% {
-            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) scale(0);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(particleStyle);
-
-// Notification system
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.className = 'vena-notification';
-    notification.textContent = message;
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--vena-card);
-        color: var(--vena-text);
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-        border-left: 4px solid var(--vena-primary);
-        box-shadow: var(--vena-card-glow);
-        z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        font-family: 'JetBrains Mono', monospace;
-        max-width: 300px;
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--vena-border);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 10);
-    
-    // Animate out and remove
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
-
-// Image error handling with placeholder
-document.querySelectorAll('img').forEach(img => {
-    img.addEventListener('error', function() {
-        if (this.classList.contains('book-thumbnail')) {
-            this.style.display = 'none';
-            const parent = this.parentElement;
-            const title = parent.querySelector('.card-title').textContent;
-            
-            // Create SVG placeholder based on content
-            const placeholder = document.createElement('div');
-            placeholder.style.cssText = `
-                width: 100%;
-                height: 180px;
-                background: linear-gradient(135deg, var(--vena-card), var(--vena-surface));
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 1rem;
-                border: 1px solid var(--vena-border);
-            `;
-            
-            let icon = '📚';
-            if (title.includes('Sherlock')) icon = '🕵️';
-            if (title.includes('Percy')) icon = '⚡';
-            if (title.includes('Code')) icon = '💻';
-            
-            placeholder.innerHTML = `<span style="font-size: 3rem;">${icon}</span>`;
-            
-            this.parentElement.insertBefore(placeholder, this);
-        }
-    });
-});
-
-// Initialize first accordion
-document.addEventListener('DOMContentLoaded', function() {
-    // Open first accordion
-    setTimeout(() => {
-        const firstAccordion = document.querySelector('.accordion-header');
-        if (firstAccordion) {
-            toggleAccordion(firstAccordion);
-        }
-    }, 500);
-    
-    // Add hover effects
-    document.querySelectorAll('.book-card, .accordion-header, .nav-item').forEach(el => {
-        el.addEventListener('mouseenter', function() {
-            this.style.zIndex = '10';
-        });
-        
-        el.addEventListener('mouseleave', function() {
-            this.style.zIndex = '';
-        });
-    });
-    
-    // Welcome notification
-    setTimeout(() => {
-        showNotification('🚀 Welcome to EduLibrary ');
-    }, 1000);
-});
-
-// Keyboard shortcuts
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'k') {
-        e.preventDefault();
-        showNotification('Search coming soon...');
-    }
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.accordion-content').forEach(c => {
-            c.style.maxHeight = null;
-            c.classList.remove("open");
-        });
-        document.querySelectorAll('.accordion-header').forEach(h => {
-            h.classList.remove("active");
-        });
-    }
-});
-
-// Add cursor glow effect
-const cursor = document.createElement('div');
-cursor.id = 'vena-cursor';
-document.body.appendChild(cursor);
-
-const cursorStyle = document.createElement('style');
-cursorStyle.textContent = `
-    #vena-cursor {
-        position: fixed;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: radial-gradient(circle, var(--vena-primary) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 10000;
-        mix-blend-mode: screen;
-        opacity: 0.5;
-        transform: translate(-50%, -50%);
-        transition: transform 0.1s ease;
-    }
-    
-    @media (pointer: coarse) {
-        #vena-cursor {
-            display: none;
-        }
-    }
-`;
-document.head.appendChild(cursorStyle);
-
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
-
-// Hide cursor on touch devices
-if ('ontouchstart' in window) {
-    cursor.style.display = 'none';
-}
-
-// Touch feedback for mobile
-document.querySelectorAll('.accordion-header, .book-card, .nav-item').forEach(element => {
-    element.addEventListener('touchstart', function() {
-        this.style.opacity = '0.8';
-    });
-    
-    element.addEventListener('touchend', function() {
-        this.style.opacity = '1';
-    });
-});
-
-// Prevent zoom on double-tap
-document.addEventListener('touchstart', function(event) {
-    if (event.touches.length > 1) {
-        event.preventDefault();
-    }
-}, { passive: false });
-
-let lastTouchEnd = 0;
-document.addEventListener('touchend', function(event) {
-    const now = (new Date()).getTime();
-    if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-    }
-    lastTouchEnd = now;
-}, false);
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
-
